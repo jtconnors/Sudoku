@@ -7,5 +7,5 @@
 # environment that incorporates support for JavaFX
 #
 
-$env:JAVA_HOME = 'd:\oracle\jdk8'
+$env:JAVA_HOME = 'd:\oracle\jdk-17'
 $env:PATH = $env:JAVA_HOME + '\bin;' + $env:PATH

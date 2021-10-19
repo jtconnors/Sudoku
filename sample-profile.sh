@@ -5,5 +5,5 @@
 # for example, inside a Visual Studio terminal, to set up a proper Java SE 8
 # environment that incorporates support for JavaFX
 #
-export JAVA_HOME=~/jdk8
+export JAVA_HOME=~/jdk-17
 export PATH=$JAVA_HOME/bin:$PATH
