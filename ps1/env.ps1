@@ -43,9 +43,12 @@ Set-Variable -Name PLATFORM -Value win
 # Application specific variables
 #
 Set-Variable -Name PROJECT -Value Sudoku
-Set-Variable -Name VERSION -Value "2.0"
+Set-Variable -Name VERSION -Value "1.0"
+Set-Variable -Name MAINMODULE -Value sudokufx
 Set-Variable -Name MAINCLASS -Value com.jtconnors.sudokufx2.Main
 Set-Variable -Name MAINJAR -Value $PROJECT-$VERSION.jar
+Set-Variable -Name INSTALLERNAME -Value $PROJECT-$VERSION
+Set-Variable -Name LAUNCHER -Value $PROJECT
 
 #
 # Local maven repository for jars
@@ -58,26 +61,46 @@ Set-Variable -Name REPO -Value $HOME\.m2\repository
 Set-Variable -Name TARGET -Value target
 
 #
+# Directory where custom runtime image (via jlink) is created
+#
+Set-Variable -Name IMAGE -Value image
+
+#
+# Directory where application image (via jpackage) is created
+#
+Set-Variable -Name APPIMAGE -Value appimage
+
+#
+# Directory where application installer (via jpackage) is created
+#
+Set-Variable -Name INSTALLER -Value installer
+
+#
 # Required external modules for this application
 # For JDK 17 javafx modules, make sure to use version 17.0.0.1 or greater
 #
 Set-Variable -Name EXTERNAL_MODULES -Value @(
+    "playsudoku\target\playsudoku-1.0.jar",
+    "sudokufx\target\sudokufx-1.0.jar",
     "$REPO\org\openjfx\javafx-base\17.0.0.1\javafx-base-17.0.0.1.jar",
-    "$REPO\org\openjfx\javafx-controls\17.0.0.1\javafx-controls-17.0.0.1.jar",
-    "$REPO\org\openjfx\javafx-fxml\17.0.0.1\javafx-fxml-17.0.0.1.jar",
     "$REPO\org\openjfx\javafx-graphics\17.0.0.1\javafx-graphics-17.0.0.1.jar",
     "$REPO\org\openjfx\javafx-base\17.0.0.1\javafx-base-17.0.0.1-$PLATFORM.jar",
-    "$REPO\org\openjfx\javafx-controls\17.0.0.1\javafx-controls-17.0.0.1-$PLATFORM.jar",
-    "$REPO\org\openjfx\javafx-fxml\17.0.0.1\javafx-fxml-17.0.0.1-$PLATFORM.jar",
     "$REPO\org\openjfx\javafx-graphics\17.0.0.1\javafx-graphics-17.0.0.1-$PLATFORM.jar"
 )
 
 #
-# Create a module-path for the java command.
+# Create a module-path for the java command.  It either includes the classes
+# in the $TARGET directory or the $TARGET/$MAINJAR (if it exists) and the
+# $EXTERNAL_MODULES defined in env.ps1.
 #
+#if (Test-Path $PROJECTDIR\$TARGET\$MAINJAR) {
+#    Set-Variable -Name MODPATH -Value $TARGET\$MAINJAR
+#} else {
+#     Set-Variable -Name MODPATH -Value $TARGET
+#}
 ForEach ($i in $EXTERNAL_MODULES) {
-    $MODPATH += $i
-    $MODPATH += ";"
+   $MODPATH += $i
+   $MODPATH += ";"
 }
 
 Set-Variable -Name SCRIPT_NAME -Value $MyInvocation.MyCommand.Name

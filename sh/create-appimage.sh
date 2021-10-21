@@ -11,4 +11,4 @@ cd `dirname $0`
 #
 . env.sh
 
-exec_cmd "java -classpath $TARGET/$MAINJAR --module-path $MODPATH --add-modules=javafx.base,javafx.controls,javafx.graphics,javafx.fxml $MAINCLASS"
+exec_cmd "$JPACKAGE_HOME/bin/jpackage --type app-image --vendor $VENDOR_STRING $VERBOSE_OPTION --name $LAUNCHER --module $MAINMODULE/$MAINCLASS --runtime-image $IMAGE"

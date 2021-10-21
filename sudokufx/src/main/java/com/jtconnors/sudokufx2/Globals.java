@@ -12,7 +12,8 @@ public class Globals {
     public static final int NUM_HINTS_HARD = 26;
 
     public static final String IMAGE_FILES_PREFIX =
-            "file:src/main/java/sudokufx2/images/";
+            //"file:src/main/java/sudokufx2/images/";
+            "com/jtconnors/sudokufx2/images/";
     public static ParentWithKeyTraversal lastFocused;
 
     public static Stage sudokuStage;

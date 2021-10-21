@@ -25,17 +25,17 @@ if ($Global:JUST_EXIT -eq "true") {
 #
 ####################
 
+
 #
 # Run the Java command
 #
 Set-Variable -Name JAVA_ARGS -Value @(
-    '-classpath',
-    """$TARGET\$MAINJAR""",
     '--module-path',
     """$MODPATH""",
-    '--add-modules=javafx.base,javafx.controls,javafx.graphics,javafx.fxml',
-    """$MAINCLASS"""
+    "-m",
+    """$MAINMODULE/$MAINCLASS"""
 )
+#Exec-Cmd("java.exe", $JAVA_ARGS)
 Exec-Cmd("$env:JAVA_HOME\bin\java.exe", $JAVA_ARGS)
 
 #

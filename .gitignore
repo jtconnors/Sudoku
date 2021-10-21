@@ -7,3 +7,5 @@
 .vscode
 .classpath
 .project
+/playsudoku/target/
+/sudokufx/target/

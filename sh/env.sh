@@ -57,9 +57,12 @@ esac
 # Application specific variables
 #
 PROJECT=Sudoku
-VERSION=2.0
+VERSION=1.0
+MAINMODULE=sudokufx
 MAINCLASS=com.jtconnors.sudokufx2.Main
 MAINJAR=$PROJECT-$VERSION.jar
+INSTALLERNAME=$PROJECT-$VERSION
+LAUNCHER=$PROJECT
 
 #
 # Local maven repository for jars
@@ -72,18 +75,31 @@ REPO=~/.m2/repository
 TARGET=target
 
 #
+# Directory where custom runtime image (via jlink) is created
+#
+IMAGE=image
+
+#
+# Directory where application image (via jpackage) is created
+#
+APPIMAGE=appimage
+
+#
+# Directory where application installer (via jpackage) is created
+#
+INSTALLER=installer
+
+#
 # Required external modules for this application
 # For JDK 17 javafx modules, make sure to use version 17.0.0.1 or greater
 #
 EXTERNAL_MODULES=(
-    "$REPO/com/jtconnors/com.jtconnors.socket/11.0.3/com.jtconnors.socket-11.0.3.jar"
+	"playsudoku/target/playsudoku-1.0.jar"
+    "sudokufx/target/sudokufx-1.0.jar"
     "$REPO/org/openjfx/javafx-base/17.0.0.1/javafx-base-17.0.0.1.jar"
-    "$REPO/org/openjfx/javafx-controls/17.0.0.1/javafx-controls-17.0.0.1.jar"
     "$REPO/org/openjfx/javafx-fxml/17.0.0.1/javafx-fxml-17.0.0.1.jar"
     "$REPO/org/openjfx/javafx-graphics/17.0.0.1/javafx-graphics-17.0.0.1.jar"
     "$REPO/org/openjfx/javafx-base/17.0.0.1/javafx-base-17.0.0.1-$PLATFORM.jar"
-    "$REPO/org/openjfx/javafx-controls/17.0.0.1/javafx-controls-17.0.0.1-$PLATFORM.jar"
-    "$REPO/org/openjfx/javafx-fxml/17.0.0.1/javafx-fxml-17.0.0.1-$PLATFORM.jar"
     "$REPO/org/openjfx/javafx-graphics/17.0.0.1/javafx-graphics-17.0.0.1-$PLATFORM.jar"
 )
 
