@@ -43,7 +43,7 @@ Set-Variable -Name PLATFORM -Value win
 # Application specific variables
 #
 Set-Variable -Name PROJECT -Value Sudoku
-Set-Variable -Name VERSION -Value "1.0"
+Set-Variable -Name VERSION -Value "2.0"
 Set-Variable -Name MAINMODULE -Value sudokufx
 Set-Variable -Name MAINCLASS -Value com.jtconnors.sudokufx2.Main
 Set-Variable -Name MAINJAR -Value $PROJECT-$VERSION.jar

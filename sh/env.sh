@@ -57,7 +57,7 @@ esac
 # Application specific variables
 #
 PROJECT=Sudoku
-VERSION=1.0
+VERSION=2.0
 MAINMODULE=sudokufx
 MAINCLASS=com.jtconnors.sudokufx2.Main
 MAINJAR=$PROJECT-$VERSION.jar

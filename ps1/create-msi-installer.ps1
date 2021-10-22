@@ -38,6 +38,8 @@ Set-Variable -Name JPACKAGE_ARGS -Value @(
     '--win-shortcut',
     '--icon',
     'src/main/resources/sudoku.ico',
+    '--app-version',
+    """$VERSION""",
     '--module-path',
     """$MODPATH""",
     '--module',

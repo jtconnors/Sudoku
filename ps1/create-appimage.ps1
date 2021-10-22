@@ -33,6 +33,8 @@ Set-Variable -Name JPACKAGE_ARGS -Value @(
     'app-image',
     '--vendor',
     """$VENDOR_STRING""",
+    '--app-version',
+    """$VERSION""",
     '--name',
     """$LAUNCHER""",
     '--module',
