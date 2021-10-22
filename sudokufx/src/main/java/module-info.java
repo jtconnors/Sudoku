@@ -4,7 +4,6 @@ module sudokufx {
     requires playsudoku;
 
     exports com.jtconnors.sudokufx2;
-
-    opens com.jtconnors.sudokufx2;
+    
     opens com.jtconnors.sudokufx2.images;
 }
