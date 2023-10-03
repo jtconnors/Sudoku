@@ -4,7 +4,7 @@ JavaFX version of the Sudoku game
 
 Started circa 2007, this program was first written in the now defunct Java FX Script language and pre-dates the introduction of mature layout managers. It served as a reference application for the book **_JavaFX Developing Rich Internet Applications_**. The source contained here has been converted to the Java-based JavaFX 2.x platform but still positions componenents in a very manual fashion without the aid of any layout manager.
 
-The project represented by this tag (```2.0-JDK17```) should be run and compiled with a JDK 17 instance.  It is specific to JDK 17 and can be built with the ```apache maven``` build lifecycle system. Scripts contained in this project will insist that JDK 17 be used, the first LTS release that formally includes the ```jpackage``` utility. Subsequent JDK releases have not been tested with this version of the project.
+The project represented by this tag (```2.0-JDK21```) should be run and compiled with a JDK 21 instance.  It is specific to JDK 21 and can be built with the ```apache maven``` build lifecycle system. Scripts contained in this project will insist that JDK 21 be used.
 
 This version of the Sudoku source has been modularized and runs completely from the module path.  It has been divided into two modules, represented by two separate subdirectories with two separate project ```pom.xml``` files.
 1. ```playsudoku``` - This module contains the logic for the Sudoku game.  The code was lifted from sourceforge.net, is quite old, and has been integrated into this application and modularized.
@@ -12,8 +12,8 @@ This version of the Sudoku source has been modularized and runs completely from 
 
 
 **Requirements:**
-1. Your default JDK should point to a valid Oracle JDK 17 runtime in your ```PATH```.
-2. Either the ```JAVA_HOME``` or ```$env:JAVA_HOME``` (depending upon the platform in question) environment variable should be set to a valid JDK 17 runtime.
+1. Your default JDK should point to a valid Oracle JDK 21 runtime in your ```PATH```.
+2. Either the ```JAVA_HOME``` or ```$env:JAVA_HOME``` (depending upon the platform in question) environment variable should be set to a valid JDK 21 runtime.
 3. In order to generate ```EXE``` or ```MSI``` installers for Windows using the scripts in this project, the WiX toolkit version 3.0 or greater must be installed and placed on the ```PATH```.
 4. For certain Linux distributions (e.g. Oracle Linux ...) additional tooling, like for example ```rpmbuild```, may be required in order to fully utilize the ```jpackage``` utility.
 
