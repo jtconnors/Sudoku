@@ -6,6 +6,5 @@
 # for example, inside a Visual Studio terminal, to set up a proper Java SE 8
 # environment that incorporates support for JavaFX
 #
-
-$env:JAVA_HOME = 'd:\oracle\jdk-17'
+$env:JAVA_HOME = 'C:\devel\jdk\defaultjdk'
 $env:PATH = $env:JAVA_HOME + '\bin;' + $env:PATH

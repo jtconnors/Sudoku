@@ -28,13 +28,13 @@ Of note, the following maven goals can be executed:
    - ```sh/run.sh``` or ```ps1\run.ps1``` - script file to run the application from the module path
    - ```sh/run-simplified.sh``` or ```ps1\run-simplified.ps1``` - alternative script file to run the application, determines main class from ```sudokufx``` module
    - ```sh/link.sh``` or ```ps1\link.ps1``` - creates a runtime image using the ```jlink``` utility
-   - ```sh/create-appimage.sh``` or ```ps1\create-appimage.ps1``` - creates a native package image of application using JEP-343 jpackage tool
-   - ```sh/create-deb-installer.sh``` - creates a native Linux DEB installer of this application using JEP-343 jpackage tool
-   - ```sh/create-dmg-installer.sh``` - creates a native MacOS DMG installer of this application using JEP-343 jpackage tool
-   - ```ps1\create-exe-installer.ps1``` - creates a native Windows EXE installer of this application using JEP-343 jpackage tool
-   - ```ps1\create-msi-installer.ps1``` - creates a native Windows MSI installer of this application using JEP-343 jpackage tool
-   - ```sh/create-pkg-installer.sh``` - creates a native MacOS PKG installer of this application using JEP-343 jpackage tool
-   - ```sh/create-rpm-installer.sh``` - creates a native Linux RPM installer of this application using JEP-343 jpackage tool
+   - ```sh/create-appimage.sh``` or ```ps1\create-appimage.ps1``` - creates a native package image of application using JEP-392 jpackage tool
+   - ```sh/create-deb-installer.sh``` - creates a native Linux DEB installer of this application using JEP-392 jpackage tool
+   - ```sh/create-dmg-installer.sh``` - creates a native MacOS DMG installer of this application using JEP-392 jpackage tool
+   - ```ps1\create-exe-installer.ps1``` - creates a native Windows EXE installer of this application using JEP-392 jpackage tool
+   - ```ps1\create-msi-installer.ps1``` - creates a native Windows MSI installer of this application using JEP-392 jpackage tool
+   - ```sh/create-pkg-installer.sh``` - creates a native MacOS PKG installer of this application using JEP-392 jpackage tool
+   - ```sh/create-rpm-installer.sh``` - creates a native Linux RPM installer of this application using JEP-392 jpackage tool
 
 Notes:
    - These scripts have a few available command-line options.  To print out
