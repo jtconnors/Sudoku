@@ -2,9 +2,9 @@
 #
 # JAVA_HOME environment variable must be set either externally in the Poweshell
 # environment or internally here by uncommenting out the Set-Variable line
-# below and assiging it the location of a valid JDK 21 runtime.
+# below and assiging it the location of a valid JDK 25 runtime.
 #
-#$env:JAVA_HOME = 'D:\openjdk\jdk-21'
+#$env:JAVA_HOME = 'D:\openjdk\jdk-25'
 
 #
 # Until the jpackage module API is formalized, each JDK release (starting with
@@ -12,7 +12,7 @@
 # Until the API is cast in stone, we'll check to make sure the JDK version
 # in use matches the EXPECTED_JDK_VERSION defined below
 #
-Set-Variable -Name EXPECTED_JDK_VERSION -Value "21"
+Set-Variable -Name EXPECTED_JDK_VERSION -Value "25"
 
 #
 # Location of JDK with jpackage utility. This is here for legacy reasons.
@@ -77,15 +77,15 @@ Set-Variable -Name INSTALLER -Value installer
 
 #
 # Required external modules for this application
-# For JDK 21 javafx modules, make sure to use version 21 or greater
+# For JDK 25 javafx modules, make sure to use version 25 or greater
 #
 Set-Variable -Name EXTERNAL_MODULES -Value @(
     "playsudoku\target\playsudoku-1.0.jar",
     "sudokufx\target\sudokufx-1.0.jar",
-    "$REPO\org\openjfx\javafx-base\21\javafx-base-21.jar",
-    "$REPO\org\openjfx\javafx-graphics\21\javafx-graphics-21.jar",
-    "$REPO\org\openjfx\javafx-base\21\javafx-base-21-$PLATFORM.jar",
-    "$REPO\org\openjfx\javafx-graphics\21\javafx-graphics-21-$PLATFORM.jar"
+    "$REPO\org\openjfx\javafx-base\25\javafx-base-25.jar",
+    "$REPO\org\openjfx\javafx-graphics\25\javafx-graphics-25.jar",
+    "$REPO\org\openjfx\javafx-base\25\javafx-base-25-$PLATFORM.jar",
+    "$REPO\org\openjfx\javafx-graphics\25\javafx-graphics-25-$PLATFORM.jar"
 )
 
 #
@@ -109,8 +109,8 @@ Set-Variable -Name SCRIPT_NAME -Value $MyInvocation.MyCommand.Name
 # Function to print command-line options to standard output
 #
 function Print-Options {
-    Write-Output "usage: ${SCRIPT_NAME} [-?,--help,-e,-n,-v]"
-    Write-Output "  -? or --help - print options to standard output and exit"
+    Write-Output "usage: ${SCRIPT_NAME} [--help,-e,-n,-v]"
+    Write-Output "  --help - print options to standard output and exit"
     Write-Output "  -e - echo the jdk command invocations to standard output"
     Write-Output "  -n - don't run the java commands, just print out invocations"
     Write-Output "  -v - --verbose flag for jdk commands that will accept it"
@@ -120,7 +120,7 @@ function Print-Options {
 # Process command-line arguments:  Not all flags are valid for all invocations,
 # but we'll parse them anyway.
 #
-#   -? or --help  print options to standard output and exit
+#   --help  print options to standard output and exit
 #   -e	echo the jdk command invocations to standard output
 #   -n  don't run the java commands, just print out invocations
 #   -v 	--verbose flag for jdk commands that will accept it
@@ -133,10 +133,6 @@ Set-Variable -Name JUST_EXIT -Value false -Scope Global
 
 Foreach ($arg in $CMDLINE_ARGS) {
     switch ($arg) {
-        '-?' {
-            Print-Options
-            Set-Variable -Name JUST_EXIT -Value true -Scope Global 
-        }
         '--help' {
             Print-Options
             Set-Variable -Name JUST_EXIT -Value true -Scope Global
